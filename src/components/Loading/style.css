@@ -1,0 +1,66 @@
+@font-face {
+	font-family: Lato;
+	src: url(/fonts/Lato-Regular.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: Limelight;
+	src: url(/fonts/Limelight-Regular.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: DMSerifDisplay;
+	src: url(/fonts/DMSerifDisplay-Regular.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: HomemadeApple;
+	src: url(/fonts/HomemadeApple-Regular.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: Inconsolata;
+	src: url(/fonts/Inconsolata_Expanded-Regular.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: YatraOne;
+	src: url(/fonts/YatraOne-Regular.ttf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.change-text {
+	text-align: center;
+	margin: 16px;
+	padding: 16px;
+	animation-name: fontChange;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes fontChange {
+	0% {
+		font-family: Lato;
+	}
+	20% {
+		font-family: Limelight;
+	}
+	40% {
+		font-family: DMSerifDisplay;
+	}
+	60% {
+		font-family: HomemadeApple;
+	}
+	80% {
+		font-family: Inconsolata;
+	}
+	100% {
+		font-family: YatraOne;
+	}
+}
