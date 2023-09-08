@@ -24,23 +24,23 @@ export default function ColorButton() {
 				<Grid columns="5" gap="1" width="auto">
 					{Object.entries(color).map(([colorName, colorVar]) => {
 						return (
-							<Tooltip key={`tooltip-${colorName}`} content={colorName}>
-								<Default
-									key={`button-${colorName}`}
-									icon={
+							<Default
+								key={`button-${colorName}`}
+								icon={
+									<Tooltip key={`tooltip-${colorName}`} content={colorName}>
 										<ColorText $colorVar={colorVar} size="6">
 											■
 										</ColorText>
-									}
-									text={''}
-									onDefaultClick={() => {
-										dispatch({
-											type: 'CHANGE_SYSTEM_COLOR',
-											payload: colorName as ColorType,
-										});
-									}}
-								/>
-							</Tooltip>
+									</Tooltip>
+								}
+								text={''}
+								onDefaultClick={() => {
+									dispatch({
+										type: 'CHANGE_SYSTEM_COLOR',
+										payload: colorName as ColorType,
+									});
+								}}
+							/>
 						);
 					})}
 				</Grid>

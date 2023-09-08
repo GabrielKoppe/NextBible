@@ -51,14 +51,14 @@ export default function TextButton() {
 			<DropdownMenu.SubTrigger>Texto</DropdownMenu.SubTrigger>
 			<DropdownMenu.SubContent>
 				<DropdownMenu.Label>Tamanho da Fonte</DropdownMenu.Label>
-				<Flex direction="row" align="center" gap="4">
+				<Flex direction="row" align="center" gap="4" pl="1">
 					<Default icon={<PlusIcon />} text={''} onDefaultClick={onClickAdd} />
 					<Text size="1">{config.textConfig.textSize}</Text>
 					<Default icon={<MinusIcon />} text={''} onDefaultClick={onClickSub} />
 				</Flex>
 
 				<DropdownMenu.Label>Tipos de Fonte</DropdownMenu.Label>
-				<Flex direction="column" gap="1" align="baseline">
+				<Flex direction="column" gap="1" align="baseline" pl="1">
 					<Default
 						icon={
 							<InterComponent weight="medium" size="2">

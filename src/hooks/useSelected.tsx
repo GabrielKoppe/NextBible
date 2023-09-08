@@ -1,8 +1,7 @@
 import { useBible } from '@/context/BibleContext';
 import { useMemo } from 'react';
-import { booksName } from '@/constant/booksName';
 import { VerseType } from '@/types/bible';
-import { getNumber, getText } from '@/util/selected';
+import { getFull } from '@/util/text';
 
 function useSelected() {
 	const [{ bible, selectedVerses }, dispatch] = useBible();
@@ -14,9 +13,7 @@ function useSelected() {
 	}
 
 	function toString() {
-		return `"${getText(selectedVerses)}"\n\n${booksName[bible.book]} ${
-			bible.chapter
-		}:${getNumber(selectedVerses)} (${bible.version.toUpperCase()})`;
+		return getFull({ bible, selectedVerses });
 	}
 
 	function set(set: VerseType | null = null) {

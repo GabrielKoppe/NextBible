@@ -2,14 +2,14 @@
 
 import React from 'react';
 import usePathBook from '@/hooks/usePathBook';
-import { VerseType, booksEnum } from '@/types/bible';
+import { BibleState, BibleType, VerseType, booksEnum } from '@/types/bible';
+import { getAfter, getBefore } from '@/util/pass';
 
 const bibleInitial: BibleState = {
 	bible: {
 		version: '',
 		book: 'gn',
 		chapter: 0,
-		bookChapters: null,
 	},
 	selectedVerses: [],
 };
@@ -26,10 +26,7 @@ export function BibleProvider({ children }: { children: React.ReactNode }) {
 	const pathBible = usePathBook();
 	const [bible, dispatch] = React.useReducer(bibleReducer, {
 		...bibleInitial,
-		bible: {
-			...pathBible,
-			bookChapters: null,
-		},
+		bible: pathBible,
 	});
 
 	return (
@@ -80,6 +77,12 @@ function bibleReducer(state: BibleState, action: BibleAction): BibleState {
 				...state,
 				selectedVerses: changeSelected,
 			};
+		case 'CHANGE_BIBLE':
+			return {
+				...state,
+				bible: action.payload,
+				selectedVerses: [],
+			};
 		default:
 			return state;
 	}
@@ -107,14 +110,8 @@ type BibleAction =
 	| {
 			type: 'CHANGE_SELECTED';
 			payload: VerseType | null;
+	  }
+	| {
+			type: 'CHANGE_BIBLE';
+			payload: BibleType;
 	  };
-
-interface BibleState {
-	bible: {
-		version: string;
-		book: booksEnum;
-		chapter: number;
-		bookChapters: number | null;
-	};
-	selectedVerses: VerseType[];
-}

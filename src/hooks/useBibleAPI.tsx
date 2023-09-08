@@ -1,41 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 
-function useBibleAPI<T>(call: string) {
-	const [bible, setBible] = useState<T>();
-	const [error, setError] = useState<Error>();
-	useEffect(() => {
-		const getBible = async () => {
-			const bibleData = await fetch(
-				`${process.env.NEXT_PUBLIC_BIBLE_API}${call}`,
-				{
-					method: 'GET',
-					headers: {
-						Authorization: `Bearer ${process.env.NEXT_PUBLIC_BIBLE_TOKEN}`,
-					},
-					cache: 'force-cache',
-				},
-			);
+function useBibleAPI<T>(call: string): T {
+	const { data } = useSWR(`/api/bible${call}`);
 
-			const bibleJson = await bibleData.json();
-
-			if (!bibleData.ok) {
-				setError(bibleJson);
-			} else {
-				setBible(bibleJson);
-			}
-		};
-
-		getBible();
-	}, [call]);
-
-	return {
-		data: bible,
-		error,
-		isError: !error,
-		isLoading: !bible,
-	};
+	return data;
 }
 
 export default useBibleAPI;

@@ -14,9 +14,7 @@ function Read() {
 		},
 	] = useBible();
 
-	const { data } = useBibleAPI<ChapterType>(
-		api.getChapter(version, book, chapter),
-	);
+	const data = useBibleAPI<ChapterType>(api.getChapter(version, book, chapter));
 
 	if (!data) {
 		return <></>;

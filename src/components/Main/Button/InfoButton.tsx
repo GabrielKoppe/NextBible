@@ -12,7 +12,7 @@ interface InfoProps {
 }
 
 function Info({ book }: InfoProps) {
-	const { data } = useBibleAPI<BookType>(api.getBooks(book));
+	const data = useBibleAPI<BookType>(api.getBooks(book));
 
 	if (!data) {
 		return <></>;

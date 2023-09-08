@@ -17,8 +17,9 @@ function Settings() {
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content variant="soft">
 					<TextButton />
-					<ThemeButton />
 					<ColorButton />
+					<DropdownMenu.Separator />
+					<ThemeButton />
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 		</Box>

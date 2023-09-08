@@ -1,23 +1,15 @@
-'use client';
-
 import { Flex, Heading } from '@radix-ui/themes';
 import { useBible } from '@/context/BibleContext';
 import Info from '../Button/InfoButton';
-import { booksName } from '@/constant/booksName';
+import { getBookChapterText } from '@/util/text';
 
 function HeadBible() {
-	const [
-		{
-			bible: { book, chapter },
-		},
-	] = useBible();
+	const [{ bible }] = useBible();
 
 	return (
 		<Flex direction="row" gap="2" align="center" px="4">
-			<Heading size="6">
-				{booksName[book]} {chapter}
-			</Heading>
-			<Info book={book} />
+			<Heading size="6">{getBookChapterText(bible)}</Heading>
+			<Info book={bible.book} />
 		</Flex>
 	);
 }

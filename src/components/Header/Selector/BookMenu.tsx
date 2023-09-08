@@ -3,7 +3,7 @@
 import api from '@/api';
 import { useBible } from '@/context/BibleContext';
 import useBibleAPI from '@/hooks/useBibleAPI';
-import { ScrollArea, Select, Text } from '@radix-ui/themes';
+import { Select, Text } from '@radix-ui/themes';
 import { useMemo } from 'react';
 import SelectMenuDefault from './SelectMenuDefault';
 import { useRouter } from 'next/navigation';
@@ -14,7 +14,8 @@ export default function BookMenu() {
 	const router = useRouter();
 
 	const [{ bible }, dispatch] = useBible();
-	const { data: books } = useBibleAPI<BooksType[]>(api.getBooks());
+
+	const books = useBibleAPI<BooksType[]>(api.getBooks());
 
 	const onChangeBook = (b: string) => {
 		router.replace(`/${bible.version}.${b}.1`, { scroll: false });

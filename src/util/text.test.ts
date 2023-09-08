@@ -1,4 +1,4 @@
-import { getNumber, getText } from './selected';
+import { getNumber, getText } from './text';
 import { describe, expect, test } from 'vitest';
 
 describe('Testes do getNumber', () => {

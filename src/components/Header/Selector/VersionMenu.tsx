@@ -12,7 +12,7 @@ export default function VersionMenu() {
 	const router = useRouter();
 
 	const [{ bible }, dispatch] = useBible();
-	const { data: versions } = useBibleAPI<VersionsType[]>(api.getVersions);
+	const versions = useBibleAPI<VersionsType[]>(api.getVersions);
 
 	const onChangeVersion = (v: string) => {
 		router.replace(`/${v}.${bible.book}.${bible.chapter}`, { scroll: false });

@@ -43,7 +43,7 @@ function ConfigReducer(state: ConfigState, action: ConfigAction): ConfigState {
 			};
 		case 'ADD_TEXT_SIZE':
 			const add =
-				state.textConfig.textSize <= 9 && state.textConfig.textSize + 1;
+				state.textConfig.textSize < 9 && state.textConfig.textSize + 1;
 			if (add) {
 				return {
 					...state,

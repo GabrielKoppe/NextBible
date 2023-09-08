@@ -1,4 +1,4 @@
-import { Flex, ScrollArea, Select } from '@radix-ui/themes';
+import { ScrollArea, Select } from '@radix-ui/themes';
 
 interface SelectMenuDefaultProps {
 	value: string;
@@ -16,7 +16,7 @@ export default function SelectMenuDefault({
 	return (
 		<Select.Root value={value} onValueChange={onChange}>
 			<Select.Trigger placeholder={placeholder} variant="ghost" />
-			<Select.Content position="popper">
+			<Select.Content position="popper" variant="soft">
 				<Select.Group>
 					<ScrollArea
 						type="auto"
