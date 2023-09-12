@@ -1,6 +1,6 @@
-#Projeto de estudo de Estudo de Next.js criando uma Biblia online.
+# Projeto de estudo de Estudo de Next.js criando uma Biblia online.
 
-##A Fazer:
+## A Fazer:
 
 - Criar um Backend que sirva:
   - Os elementos da Biblia (Livros, capitulos, versiculos)
