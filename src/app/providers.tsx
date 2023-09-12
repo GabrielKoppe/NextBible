@@ -1,9 +1,8 @@
 'use client';
 
+import { ReactNode } from 'react';
 import { BibleProvider } from '@/context/BibleContext';
 import { Theme } from '@radix-ui/themes';
-import { ReactNode } from 'react';
-
 import '@radix-ui/themes/styles.css';
 import { ConfigProvider, useConfig } from '@/context/ConfigContext';
 import { SWRConfig } from 'swr';

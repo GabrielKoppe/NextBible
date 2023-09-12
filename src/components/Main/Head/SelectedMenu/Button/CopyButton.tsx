@@ -5,10 +5,10 @@ import useSelected from '@/hooks/useSelected';
 function CopyButton() {
 	const select = useSelected();
 
-	function onClickCopy(e: React.MouseEvent<HTMLElement>) {
+	async function onClickCopy(e: React.MouseEvent<HTMLElement>) {
 		e.preventDefault();
 
-		navigator.clipboard.writeText(select.toString());
+		await navigator.clipboard.writeText(select.toString());
 	}
 
 	return (
